@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: busybox
+spec:
+  template:
+    metadata:
+      name: busybox
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        command: ["echo",  "hello", "world"]
+      restartPolicy: Never
+  completions: 10
+  parallelism: 2
